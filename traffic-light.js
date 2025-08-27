@@ -52,7 +52,7 @@ template.innerHTML = html`
  * It is intentional that the state cannot be changed by
  * modifying the `state` attribute or setting the `state` property.
  */
-class StopLight extends HTMLElement {
+class TrafficLight extends HTMLElement {
   static states = ["stop", "yield", "go"];
   #state;
   #stateToDivMap = new Map();
@@ -64,12 +64,12 @@ class StopLight extends HTMLElement {
 
   connectedCallback() {
     const initial = this.getAttribute("state");
-    this.#state = StopLight.states.includes(initial) ? initial : "stop";
+    this.#state = TrafficLight.states.includes(initial) ? initial : "stop";
 
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
     const divs = this.shadowRoot.querySelectorAll("div");
-    StopLight.states.forEach((state, index) => {
+    TrafficLight.states.forEach((state, index) => {
       this.#stateToDivMap.set(state, divs[index]);
     });
 
@@ -101,4 +101,4 @@ class StopLight extends HTMLElement {
   }
 }
 
-customElements.define("stop-light", StopLight);
+customElements.define("traffic-light", TrafficLight);
