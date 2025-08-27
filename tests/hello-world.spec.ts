@@ -15,10 +15,7 @@ test("snapshot", async ({ page }) => {
 });
 
 test("default name", async ({ page }) => {
-  //const el = page.locator("hello-world").first();
-  const els = page.locator("hello-world");
-  console.log("count =", await els.count());
-  const el = els.first();
+  const el = page.locator("hello-world").first();
   const p = el.locator("p");
   await expect(p).toHaveText("Hello, World!");
 });
