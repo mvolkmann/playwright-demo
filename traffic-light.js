@@ -35,7 +35,7 @@ template.innerHTML = html`
       background-color: lawngreen;
     }
   </style>
-  <button type="button">
+  <button aria-label="traffic light" type="button">
     <div class="stop"></div>
     <div class="yield"></div>
     <div class="go"></div>
