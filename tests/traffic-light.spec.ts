@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { expectProperty } from "./util";
+import TrafficLight from "../src/traffic-light";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("http://localhost:5173/traffic-light.html");
@@ -22,9 +23,9 @@ test("can click to change state", async ({ page }) => {
 test("can call next to change state", async ({ page }) => {
   const trafficLight = page.locator("traffic-light");
   await expectProperty(trafficLight, "state", "stop");
-  await trafficLight.evaluate((el) => el.next());
+  await trafficLight.evaluate((el: TrafficLight) => el.next());
   await expectProperty(trafficLight, "state", "yield");
-  await trafficLight.evaluate((el) => el.next());
+  await trafficLight.evaluate((el: TrafficLight) => el.next());
   await expectProperty(trafficLight, "state", "go");
 });
 
