@@ -4,8 +4,13 @@ import {
   expectProperty,
   setAttribute,
   setProperty,
-} from "./util"; // defines helpful utility methods I wrote
+} from "./util"; // defines utility methods I wrote
 
+// This runs before each of the test functions below
+// to perform common setup steps.
+// If needed, the test.afterEach method can
+// specify a function to run after each test
+// to perform cleanup steps.
 test.beforeEach(async ({ page }) => {
   await page.goto("http://localhost:5173/");
 });
