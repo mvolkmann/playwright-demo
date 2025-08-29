@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { expectProperty } from "./util";
-import TrafficLight from "../src/traffic-light";
+import type { TrafficLight } from "../src/traffic-light";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("http://localhost:5173/traffic-light.html");

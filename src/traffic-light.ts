@@ -54,7 +54,7 @@ template.innerHTML = html`
  * modifying the `state` attribute or setting the `state` property.
  * @attr {string} [state="stop"] - The starting state.
  */
-export default class TrafficLight extends HTMLElement {
+export class TrafficLight extends HTMLElement {
   private static states = ["stop", "yield", "go"];
   private _state: string = "stop";
   private stateToDivMap = new Map();
